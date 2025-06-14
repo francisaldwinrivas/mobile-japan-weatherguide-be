@@ -5,15 +5,15 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\Interfaces\IService;
-use App\Models\Prefecture;
+use App\Models\City;
 use Illuminate\Database\Eloquent\Builder;
 
-class PrefectureService extends BaseService implements IService
+class CityService extends BaseService implements IService
 {
     /**
-     * @param Prefecture $model
+     * @param City $model
      */
-    public function __construct(Prefecture $model)
+    public function __construct(City $model)
     {
         $this->model = $model;
     }
@@ -21,9 +21,9 @@ class PrefectureService extends BaseService implements IService
     /**
      * @param array $args
      *
-     * @return Prefecture
+     * @return City
      */
-    public function create(array $args): Prefecture
+    public function create(array $args): City
     {
         $needle = ['id' => null];
 
@@ -31,14 +31,14 @@ class PrefectureService extends BaseService implements IService
     }
 
     /**
-     * @param int $prefectureId
+     * @param int $cityId
      * @param array $args
      *
-     * @return Prefecture
+     * @return City
      */
-    public function update(int $prefectureId, array $args): Prefecture
+    public function update(int $cityId, array $args): City
     {
-        $needle = ['id' => $prefectureId];
+        $needle = ['id' => $cityId];
 
         return $this->upsert($needle, $args);
     }

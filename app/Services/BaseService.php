@@ -30,7 +30,7 @@ abstract class BaseService
     /**
      * @param Model|int $model
      */
-    public function delete(int $model): bool
+    public function delete(Model|int $model): bool
     {
         if (! $model instanceof $this->model) {
             $model = $this->model->findOrFail($model);
@@ -96,7 +96,7 @@ abstract class BaseService
      *
      * @return Builder
      */
-    protected function builder(array $args): Builder
+    public function builder(array $args): Builder
     {
         return $this->model->query();
     }
