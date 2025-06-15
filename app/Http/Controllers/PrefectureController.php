@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PrefectureResource;
 use App\Services\PrefectureService;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class PrefectureController extends Controller
 {
@@ -22,10 +24,12 @@ class PrefectureController extends Controller
     /**
      * @param Request $request
      *
-     * @return Collection|LengthPaginator
+     * @return AnonymousResourceCollection
      */
-    public function index(Request $request): Collection|LengthAwarePaginator
+    public function index(Request $request): AnonymousResourceCollection
     {
-        return $this->service->search($request->all());
+        $result = $this->service->search($request->all());
+
+        return PrefectureResource::collection($result);
     }
 }
