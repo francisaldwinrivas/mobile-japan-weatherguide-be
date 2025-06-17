@@ -10,6 +10,7 @@ class TokyoCitiesSeeder extends BaseCitySeeder
     {
         $this->prefectureName = 'Tokyo';
         $this->cities = [
+            ['name' => 'Tokyo',             'code' => '13121', 'lat' => 35.652832, 'long' => 139.839478],
             ['name' => 'Adachi-ku',         'code' => '13121', 'lat' => 35.7788, 'long' => 139.7951],
             ['name' => 'Arakawa-ku',        'code' => '13118', 'lat' => 35.7399, 'long' => 139.7813],
             ['name' => 'Bunkyō-ku',         'code' => '13105', 'lat' => 35.7175, 'long' => 139.7473],
